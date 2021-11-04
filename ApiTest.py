@@ -38,3 +38,6 @@ engine = db.create_engine(
 
 # 5. 인서트하기
 weather_dataFrame.to_sql("weather", engine, index=False, if_exists="replace")
+
+# 6. csv 파일로 만들기
+weather_dataFrame.to_csv("weather.csv")
