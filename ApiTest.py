@@ -1,6 +1,6 @@
 import requests
 #import sqlalchemy as db
-#import pandas as pd
+import pandas as pd
 
 url = "http://openapi.seoul.go.kr:8088/41694f6b566162633832477a616341/json/RealtimeCityAir/1/5"
 response = requests.get(url)
@@ -21,4 +21,7 @@ for api in row:
     list["IDEX_NM"] = api["IDEX_NM"]
     weather.append(list)
 
-print(weather)
+# print(weather)
+
+weather_dataFrame = pd.DataFrame(weather)
+print(weather_dataFrame)
