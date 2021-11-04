@@ -28,9 +28,13 @@ for api in row:
 
 # 3. Pandas로 데이터 변경하기
 weather_dataFrame = pd.DataFrame(weather)
-print(weather_dataFrame)
+# print(weather_dataFrame)
 
 # 4. DB연결 하기
 
 engine = db.create_engine(
     "mariadb+mariadbconnector://python:python1234@127.0.0.1:3306/pythondb")
+
+
+# 5. 인서트하기
+weather_dataFrame.to_sql("weather", engine, index=False, if_exists="replace")
